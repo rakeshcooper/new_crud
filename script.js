@@ -3,6 +3,8 @@ let arrayName = document.querySelector(".name");
 let search = document.querySelector(".search-bar")
 aArray = ["Rakesh","Cooper","Stephen","Hawking","Raghav","Cooper"]
 let method = document.querySelector(".method")
+let findArray = []
+let findNew
 let type = true;
 let newType = true;
 // arrayName.innerHTML = aArray
@@ -17,25 +19,23 @@ method.addEventListener("change", (e) =>{
 })
 
 search.addEventListener("input",(e)=>{
-    
-        let findArray = aArray.map((data) => {
+    if(newType == true){    
+        findArray = aArray.map((data) => {
         let dat = data.toLowerCase()
         let txtValue = dat.slice(0)
-        if(newType == true){
-            if (txtValue.indexOf(search.value) > -1 ){
+            if (txtValue.indexOf(search.value) > -1 || data.indexOf(search.value) > -1 ){
                 console.log(dat);
-                return dat[0].toUpperCase()+dat.slice(1)  
+                // return dat[0].toUpperCase()+dat.slice(1)
+
+                 return dat  
+
             }
            
-        }  else if(newType == false) {
-                console.log("test");
-                let found = aArray.find((element) => element == search.value);                
-                console.log(found);
-                return found;
-        }   
-        
         })
-
+    }  else if(newType == false) {
+                findNew = aArray.find((element) => element == search.value);                 
+                findArray = [findNew]   
+    }
          let filteredArray = findArray.filter((data) => {
             return data !== undefined
             })
@@ -50,10 +50,7 @@ search.addEventListener("input",(e)=>{
                 }
             } else{
                 arrayName.innerHTML = "Not Found"
-            }
-
-        
-           
+            }           
 })
 
 
