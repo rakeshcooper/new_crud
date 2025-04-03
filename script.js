@@ -26,8 +26,7 @@ search.addEventListener("input",(e)=>{
             if (txtValue.indexOf(search.value) > -1 || data.indexOf(search.value) > -1 ){
                 console.log(dat);
                 return dat[0].toUpperCase()+dat.slice(1)
-            }
-           
+            }          
         })
     }  else if(newType == false) {
                 findNew = aArray.find((ele) => ele.toLowerCase() == search.value);                 
