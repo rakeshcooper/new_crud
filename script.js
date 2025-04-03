@@ -25,27 +25,23 @@ search.addEventListener("input",(e)=>{
         let txtValue = dat.slice(0)
             if (txtValue.indexOf(search.value) > -1 || data.indexOf(search.value) > -1 ){
                 console.log(dat);
-                // return dat[0].toUpperCase()+dat.slice(1)
-
-                 return dat  
-
+                return dat[0].toUpperCase()+dat.slice(1)
             }
            
         })
     }  else if(newType == false) {
-                findNew = aArray.find((element) => element == search.value);                 
+                findNew = aArray.find((element) => element.toLowerCase() == search.value);                 
                 findArray = [findNew]   
     }
          let filteredArray = findArray.filter((data) => {
             return data !== undefined
             })
-            console.log(findArray);
+            // console.log(findArray);
+            console.log(filteredArray.length);
             if(filteredArray.length > 0){
-                if(e.target.value.length <= 0) 
-                    {
+                if(e.target.value.length <= 0) {
                         arrayName.innerHTML = "" 
-                    }
-                else{
+                }else{
                     arrayName.innerHTML = filteredArray
                 }
             } else{
