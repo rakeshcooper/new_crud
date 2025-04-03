@@ -30,7 +30,7 @@ search.addEventListener("input",(e)=>{
            
         })
     }  else if(newType == false) {
-                findNew = aArray.find((element) => element.toLowerCase() == search.value);                 
+                findNew = aArray.find((ele) => ele.toLowerCase() == search.value);                 
                 findArray = [findNew]   
     }
          let filteredArray = findArray.filter((data) => {
